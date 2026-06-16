@@ -7,19 +7,19 @@
 }
 
 body {
-    background-color: #f4f7f6; /* Fundo cinza bem claro e moderno */
-    color: #333333;
+    background-color: #0b0f19; /* Fundo escuro premium */
+    color: #c5cedd; /* Texto claro para contraste */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinha o início no topo para permitir rolagem */
     min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
-/* Caixa Principal que segura o site e empilha tudo no centro */
+/* Caixa Principal que segura o site */
 .container-principal {
     width: 100%;
-    max-width: 450px;
+    max-width: 600px; /* Aumentado para acomodar melhor os projetos */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,69 +28,144 @@ body {
 /* Organizando o topo */
 header {
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     text-align: center;
 }
 
 header h1 {
-    font-size: 1.8rem;
-    color: #1a1a1a;
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 header p {
-    color: #666666;
-    font-size: 1rem;
-    margin-top: 5px;
+    color: #00a2ff; /* Azul neon moderno para destacar sua profissão */
+    font-size: 1.1rem;
+    margin-top: 8px;
+    font-weight: 500;
 }
 
-/* Seção Sobre Mim */
+/* Seções Universais (Sobre Mim e Projetos) */
 section {
     width: 100%;
-    background: #ffffff;
-    padding: 20px;
+    background: #111827; /* Fundo dos blocos um pouco mais claro que o body */
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     margin-bottom: 25px;
     text-align: left;
 }
 
 section h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #007acc;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-left: 4px solid #00a2ff; /* Detalhe azul na lateral */
+    padding-left: 10px;
 }
 
 section p {
     font-size: 0.95rem;
     line-height: 1.6;
+    color: #9ca3af;
 }
 
-/* Botões de Links */
+/* ==========================================
+   ESTILIZAÇÃO DA NOVA ÁREA DE PROJETOS 
+========================================== */
+.grid-projetos {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.card-projeto {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-projeto h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.card-projeto p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Botão específico de dentro do projeto */
+.btn-projeto {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    color: #00a2ff;
+    border: 1px solid #00a2ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-projeto:hover {
+    background-color: #00a2ff;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(0, 162, 255, 0.4);
+}
+
+/* Efeito ao passar o mouse no card do projeto */
+.card-projeto:hover {
+    transform: translateY(-3px);
+    border-color: #00a2ff;
+}
+
+/* ==========================================
+   BOTÕES DE REDES SOCIAIS E CURRÍCULO (MAIN)
+========================================== */
 main {
     width: 100%;
+    margin-top: 10px;
 }
 
 main h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 15px;
     text-align: center;
+    color: #9ca3af;
 }
 
+/* Estilo empilhado dos botões principais */
 main a {
     display: block;
     text-decoration: none;
-    background-color: #007acc; /* Cor azul profissional */
+    background-color: #0084ff; /* Azul sólido marcante */
     color: white;
     padding: 14px;
     border-radius: 8px;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 12px;
     transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Efeito ao passar o mouse nos botões */
+/* Pequeno ajuste para o botão de Currículo se destacar (Estilo Borda Vazada) */
+main a[href="Curriculo.pdf"] {
+    background-color: transparent;
+    border: 2px solid #0084ff;
+    color: #0084ff;
+}
+
+/* Efeitos de Hover nos botões principais */
 main a:hover {
-    background-color: #005999;
+    background-color: #0066cc;
     transform: translateY(-2px);
+}
+
+main a[href="Curriculo.pdf"]:hover {
+    background-color: #0084ff;
+    color: white;
 }
