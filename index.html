@@ -4,20 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ewerton Natan | Portfólio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --bg-dark: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-white: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container-principal {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+            margin-bottom: 25px;
+            object-fit: cover;
+        }
+
+        /* O NOME GIGANTE QUE VOCÊ GOSTOU */
+        .typewriter {
+            font-size: 4.5rem; 
+            font-weight: 800;
+            color: var(--text-white);
+            text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+            overflow: hidden;
+            border-right: .15em solid var(--neon-blue);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.05em;
+            animation: 
+                typing 3.5s steps(30, end),
+                blink-caret .75s step-end infinite;
+            width: fit-content;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--neon-blue); } }
+
+        h2 {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            border-bottom: 1px solid var(--neon-blue);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        .skills-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 12px 25px;
+            transition: 0.3s;
+            box-shadow: 0 0 8px var(--neon-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px var(--neon-blue);
+            background: #222;
+        }
+
+        .grid-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card-projeto {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-projeto:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+            transform: scale(1.02);
+        }
+
+        .btn-projeto {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .btn-projeto:hover {
+            background: var(--neon-blue);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        main {
+            text-align: center;
+            margin-top: 60px;
+            padding: 50px 20px;
+            border-top: 1px solid #333;
+        }
+
+        .social-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin: 10px;
+            padding: 12px 25px;
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            display: inline-block;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            background: var(--neon-blue);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        @media (max-width: 600px) {
+            .typewriter { 
+                font-size: 2.2rem; 
+                letter-spacing: 0.02em;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <div class="container-principal">
 
         <header>
-            <h1>Ewerton Natan</h1>
-            <p>Estudante de Análise e Desenvolvimento de Sistemas | Desenvolvedor Full Stack</p>
+            <img src="minha-foto.jpg" alt="Ewerton Natan" class="profile-img">
+            <h1 class="typewriter">Ewerton Natan</h1>
         </header>
 
         <section id="sobre">
             <h2>Sobre Mim</h2>
-            <p>Sou um estudante dedicado, apaixonado por tecnologia web. Construindo projetos reais enquanto aprendo — HTML, CSS, JavaScript e React.</p>
+            <p>Sou um estudante dedicado, apaixonado por tecnologia web. Construindo soluções reais e automações que simplificam negócios — HTML, CSS, JavaScript, React e n8n.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>Minhas Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-card">⚛️ React</div>
+                <div class="skill-card">📜 JavaScript</div>
+                <div class="skill-card">🎨 CSS3</div>
+                <div class="skill-card">⚙️ n8n</div>
+                <div class="skill-card">🐧 Linux</div>
+                <div class="skill-card">🐙 Git</div>
+            </div>
         </section>
 
         <section id="projetos">
@@ -52,13 +231,16 @@
         </section>
 
         <main>
-            <h2>Minhas Redes Sociais e Currículo</h2>
-            <a href="https://www.linkedin.com/in/ewerton-natan-b9ab5238b" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Tonatan36" target="_blank">GitHub</a>
-            <a href="Curriculo.pdf" target="_blank">Ver Currículo</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ewerton-natan-b9ab5238b" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Tonatan36" target="_blank">GitHub</a>
+                <a href="curriculo.PDF" target="_blank">Ver Currículo</a>
+            </div>
         </main>
 
     </div>
 
 </body>
 </html>
+
+
