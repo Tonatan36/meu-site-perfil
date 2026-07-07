@@ -42,66 +42,33 @@
             object-fit: cover;
         }
 
-        /* O NOME GIGANTE QUE VOCÊ GOSTOU */
-        .typewriter {
-            font-size: 4.5rem; 
-            font-weight: 800;
-            color: var(--text-white);
-            text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
-            overflow: hidden;
-            border-right: .15em solid var(--neon-blue);
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: 0.05em;
-            animation: 
-                typing 3.5s steps(30, end),
-                blink-caret .75s step-end infinite;
-            width: fit-content;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--neon-blue); } }
-
-        h2 {
+        .highlight {
             color: var(--neon-blue);
             text-shadow: 0 0 10px var(--neon-blue);
-            border-bottom: 1px solid var(--neon-blue);
-            padding-bottom: 10px;
-            margin-top: 50px;
         }
 
-        .skills-grid {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 30px 0;
+        section {
+            margin-bottom: 50px;
         }
 
-        .skill-card {
-            background: var(--card-bg);
-            border: 1px solid var(--neon-blue);
-            border-radius: 8px;
-            padding: 12px 25px;
-            transition: 0.3s;
-            box-shadow: 0 0 8px var(--neon-blue);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 25px var(--neon-blue);
-            background: #222;
+        h2 {
+            border-bottom: 2px solid var(--neon-blue);
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
         }
 
         .grid-projetos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-top: 30px;
         }
 
         .card-projeto {
@@ -109,7 +76,7 @@
             padding: 25px;
             border-radius: 12px;
             border: 1px solid #333;
-            transition: 0.4s;
+            transition: 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -117,18 +84,23 @@
 
         .card-projeto:hover {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue);
-            transform: scale(1.02);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.1);
+        }
+
+        .card-projeto h3 {
+            color: var(--neon-blue);
+            margin-top: 0;
         }
 
         .btn-projeto {
-            color: var(--neon-blue);
-            text-decoration: none;
-            font-weight: bold;
             display: inline-block;
             margin-top: 20px;
-            padding: 8px 15px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--neon-blue);
             border: 1px solid var(--neon-blue);
+            text-decoration: none;
             border-radius: 5px;
             text-align: center;
             transition: 0.3s;
@@ -137,110 +109,86 @@
         .btn-projeto:hover {
             background: var(--neon-blue);
             color: var(--bg-dark);
-            box-shadow: 0 0 10px var(--neon-blue);
+            font-weight: bold;
         }
 
-        main {
+        .social-links {
             text-align: center;
-            margin-top: 60px;
-            padding: 50px 20px;
-            border-top: 1px solid #333;
+            margin-top: 40px;
         }
 
         .social-links a {
             color: var(--text-white);
             text-decoration: none;
-            margin: 10px;
-            padding: 12px 25px;
-            border: 1px solid var(--neon-blue);
-            border-radius: 8px;
-            display: inline-block;
+            margin: 0 15px;
+            font-size: 1.1rem;
             transition: 0.3s;
-            font-weight: bold;
         }
 
         .social-links a:hover {
-            background: var(--neon-blue);
-            color: var(--bg-dark);
-            box-shadow: 0 0 20px var(--neon-blue);
-        }
-
-        @media (max-width: 600px) {
-            .typewriter { 
-                font-size: 2.2rem; 
-                letter-spacing: 0.02em;
-            }
+            color: var(--neon-blue);
         }
     </style>
 </head>
 <body>
 
     <div class="container-principal">
-
         <header>
-            <img src="minha-foto.jpg" alt="Ewerton Natan" class="profile-img">
-            <h1 class="typewriter">Ewerton Natan</h1>
+            <h1>Ewerton <span class="highlight">Natan</span></h1>
+            <p>Estudante de Análise e Desenvolvimento de Sistemas | Desenvolvedor Web</p>
         </header>
 
         <section id="sobre">
             <h2>Sobre Mim</h2>
-            <p>Sou um estudante dedicado, apaixonado por tecnologia web. Construindo soluções reais e automações que simplificam negócios — HTML, CSS, JavaScript, React e n8n.</p>
-        </section>
-
-        <section id="habilidades">
-            <h2>Minhas Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill-card">⚛️ React</div>
-                <div class="skill-card">📜 JavaScript</div>
-                <div class="skill-card">🎨 CSS3</div>
-                <div class="skill-card">⚙️ n8n</div>
-                <div class="skill-card">🐧 Linux</div>
-                <div class="skill-card">🐙 Git</div>
-            </div>
+            <p>Focado em criar soluções eficientes e com design moderno. Atualmente estudando o ecossistema de desenvolvimento web, com foco em fundamentos de JavaScript, interfaces interativas e automação.</p>
         </section>
 
         <section id="projetos">
-            <h2>Meus Projetos</h2>
+            <h2>Projetos em Destaque</h2>
             <div class="grid-projetos">
+                
+                <!-- PROJETO PRINCIPAL -->
+                <div class="card-projeto">
+                    <h3>🚀 Zapia CRM Pro</h3>
+                    <p>Sistema corporativo de gestão de leads com Kanban, histórico de notas, métricas financeiras e SPA funcional com JavaScript Puro.</p>
+                    <a href="https://tonatan36.github.io/zapia-crm-pro/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
+                </div>
+
                 <div class="card-projeto">
                     <h3>⏱️ Relógio Digital</h3>
-                    <p>Um relógio moderno com efeito neon desenvolvido com HTML, CSS e JavaScript.</p>
+                    <p>Relógio com tema neon, exibição de data completa e efeitos visuais modernos usando JavaScript.</p>
                     <a href="https://tonatan36.github.io/relogio-digital/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
-                <div class="card-projeto">
-                    <h3>🧮 Calculadora Dark</h3>
-                    <p>Uma calculadora moderna com design escuro e efeitos neon, aplicando lógica com JavaScript.</p>
-                    <a href="https://tonatan36.github.io/Calculadora/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
-                </div>
+
                 <div class="card-projeto">
                     <h3>🧠 Jogo da Memória</h3>
-                    <p>Jogo da memória com tema neon desenvolvido com HTML, CSS e JavaScript.</p>
+                    <p>Desafio clássico com tema de tecnologia, sistema de pontuação e lógica avançada de JavaScript.</p>
                     <a href="https://tonatan36.github.io/jogo-da-memoria/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
+
                 <div class="card-projeto">
                     <h3>✅ To-Do List</h3>
-                    <p>Lista de tarefas com tema neon, salvamento automático e gerenciamento completo com JavaScript.</p>
+                    <p>Lista de tarefas com tema neon, salvamento automático (LocalStorage) e gerenciamento completo.</p>
                     <a href="https://tonatan36.github.io/todo-list/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
+
                 <div class="card-projeto">
                     <h3>🌤️ Previsão do Tempo</h3>
-                    <p>App de previsão do tempo que consome a API do OpenWeatherMap com tema neon.</p>
+                    <p>App que consome a API do OpenWeatherMap para exibir dados climáticos em tempo real.</p>
                     <a href="https://tonatan36.github.io/previsao-tempo/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
+
             </div>
         </section>
 
-        <main>
+        <footer>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/ewerton-natan-b9ab5238b" target="_blank">LinkedIn</a>
                 <a href="https://github.com/Tonatan36" target="_blank">GitHub</a>
-                <a href="curriculo.PDF" target="_blank">Ver Currículo</a>
+                <a href="Curriculo.pdf" target="_blank">Ver Currículo</a>
             </div>
-        </main>
-
+        </footer>
     </div>
 
 </body>
 </html>
-
-
