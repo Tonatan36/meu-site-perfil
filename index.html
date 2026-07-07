@@ -3,137 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ewerton Natan | Portfólio</title>
+    <title>Ewerton Natan | Portfólio ADS</title>
     <style>
         :root {
             --neon-blue: #00f2ff;
             --bg-dark: #0a0a0a;
-            --card-bg: #1a1a1a;
+            --card-bg: #161616;
             --text-white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-white);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
+            z-index: -1;
         }
 
         .container-principal {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
         header {
             text-align: center;
-            padding: 60px 0;
-        }
-
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 3px solid var(--neon-blue);
-            box-shadow: 0 0 20px var(--neon-blue);
-            margin-bottom: 25px;
-            object-fit: cover;
+            padding: 80px 0 60px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            font-weight: 800;
         }
 
         .highlight {
             color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue);
+            text-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .tags-header {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .tag-tech {
-            background: rgba(0, 242, 255, 0.1);
+            background: var(--glass);
             color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin: 5px;
-            display: inline-block;
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
 
         h2 {
-            border-bottom: 2px solid var(--neon-blue);
-            display: inline-block;
-            margin-bottom: 30px;
-            padding-bottom: 5px;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--neon-blue);
+            padding-left: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .grid-projetos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card-projeto {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            transition: 0.3s;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .card-projeto:hover {
-            border-color: var(--neon-blue);
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.1);
+            border-color: var(--neon-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .card-projeto h3 {
             color: var(--neon-blue);
+            font-size: 1.5rem;
             margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .card-projeto p {
+            color: #bbb;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: #aaa;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .btn-projeto {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
+            display: block;
+            padding: 12px;
             background: transparent;
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
+            color: var(--text-white);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-align: center;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .btn-projeto:hover {
             background: var(--neon-blue);
             color: var(--bg-dark);
-            font-weight: bold;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
         }
 
-        .social-links {
+        footer {
             text-align: center;
-            margin-top: 40px;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .social-links a {
-            color: var(--text-white);
+            color: #888;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
-            transition: 0.3s;
+            margin: 0 20px;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .social-links a:hover {
@@ -145,9 +194,9 @@
 
     <div class="container-principal">
         <header>
-            <h1>Ewerton <span class="highlight">Natan</span></h1>
-            <p>Estudante de ADS | Desenvolvedor Web | Especialista em Automação</p>
-            <div>
+            <h1>EWERTON <span class="highlight">NATAN</span></h1>
+            <p class="subtitle">Estudante de ADS | Desenvolvedor Web | Especialista em Automação</p>
+            <div class="tags-header">
                 <span class="tag-tech">React</span>
                 <span class="tag-tech">N8n</span>
                 <span class="tag-tech">JavaScript</span>
@@ -157,7 +206,7 @@
 
         <section id="sobre">
             <h2>Sobre Mim</h2>
-            <p>Focado em criar soluções eficientes e com design moderno. Atualmente estudando o ecossistema de desenvolvimento web e automação de processos.</p>
+            <p style="color: #bbb; max-width: 800px;">Desenvolvedor focado em criar soluções eficientes e interfaces modernas. Atualmente cursando Análise e Desenvolvimento de Sistemas, com forte base em lógica de programação, arquitetura SPA e automação de fluxos de trabalho.</p>
         </section>
 
         <section id="projetos">
@@ -166,38 +215,46 @@
                 
                 <div class="card-projeto">
                     <h3>🚀 Zapia CRM Pro</h3>
-                    <p>Sistema corporativo de gestão de leads com Kanban, histórico de notas e métricas financeiras. (JS Puro)</p>
-                    <a href="https://tonatan36.github.io/zapia-crm-pro/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
+                    <p>Sistema corporativo com Kanban, histórico de notas e métricas em tempo real. Focado em UX e gestão de leads.</p>
+                    <div class="badges-container">
+                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
+                        <span class="badge">DOM API</span>
+                        <span class="badge">LocalStorage</span>
+                    </div>
+                    <a href="https://tonatan36.github.io/zapia-crm-pro/" target="_blank" class="btn-projeto">Explorar Solução</a>
                 </div>
 
                 <div class="card-projeto">
                     <h3>⏱️ Relógio Digital</h3>
-                    <p>Relógio com tema neon, exibição de data completa e efeitos visuais modernos.</p>
+                    <p>Interface de alta precisão com tema neon, exibição de data completa e efeitos visuais imersivos.</p>
+                    <div class="badges-container">
+                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
+                        <span class="badge" style="color: #264de4;">CSS3</span>
+                        <span class="badge">UI Design</span>
+                    </div>
                     <a href="https://tonatan36.github.io/relogio-digital/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
 
                 <div class="card-projeto">
                     <h3>🧮 Calculadora Dark</h3>
-                    <p>Calculadora com design moderno, tema dark e lógica completa de operações.</p>
+                    <p>Ferramenta de cálculo com design minimalista, modo escuro e lógica aritmética avançada.</p>
+                    <div class="badges-container">
+                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
+                        <span class="badge" style="color: #e34f26;">HTML5</span>
+                        <span class="badge">Matemática</span>
+                    </div>
                     <a href="https://tonatan36.github.io/Calculadora/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
 
                 <div class="card-projeto">
                     <h3>🧠 Jogo da Memória</h3>
-                    <p>Desafio clássico com tema de tecnologia e lógica avançada de JavaScript.</p>
+                    <p>Aplicação interativa para treino cognitivo com sistema de pontuação e lógica de estados.</p>
+                    <div class="badges-container">
+                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
+                        <span class="badge">Game Logic</span>
+                        <span class="badge">Interatividade</span>
+                    </div>
                     <a href="https://tonatan36.github.io/jogo-da-memoria/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
-                </div>
-
-                <div class="card-projeto">
-                    <h3>✅ To-Do List</h3>
-                    <p>Lista de tarefas com tema neon, salvamento automático e gerenciamento completo.</p>
-                    <a href="https://tonatan36.github.io/todo-list/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
-                </div>
-
-                <div class="card-projeto">
-                    <h3>🌤️ Previsão do Tempo</h3>
-                    <p>App que consome a API do OpenWeatherMap para exibir dados climáticos.</p>
-                    <a href="https://tonatan36.github.io/previsao-tempo/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
                 </div>
 
             </div>
@@ -207,7 +264,7 @@
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/ewerton-natan-b9ab5238b" target="_blank">LinkedIn</a>
                 <a href="https://github.com/Tonatan36" target="_blank">GitHub</a>
-               <a href="Ewerton_Curriculo.pdf" target="_blank">Ver Currículo</a>
+                <a href="Ewerton_Natan_Curriculo.pdf" target="_blank">Download CV</a>
             </div>
         </footer>
     </div>
