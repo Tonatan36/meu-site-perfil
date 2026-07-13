@@ -10,7 +10,7 @@
             --bg-dark: #0a0a0a;
             --card-bg: #161616;
             --text-white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.03);
+            --glass: rgba(0, 242, 255, 0.05);
         }
 
         * {
@@ -21,19 +21,12 @@
         body {
             background-color: var(--bg-dark);
             color: var(--text-white);
-            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
-            z-index: -1;
+            background-attachment: fixed;
         }
 
         .container-principal {
@@ -47,8 +40,21 @@
             padding: 80px 0 60px;
         }
 
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
+            margin-bottom: 25px;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 8vw, 3.2rem);
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 4px;
@@ -61,10 +67,24 @@
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #888;
             margin-top: 10px;
             letter-spacing: 1px;
+            min-height: 1.5em; /* Evita que o site pule ao digitar */
+        }
+
+        /* Efeito de Cursor Piscante */
+        .highlight-text {
+            color: var(--neon-blue);
+            font-weight: bold;
+            border-right: 2px solid var(--neon-blue);
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
         }
 
         .tags-header {
@@ -78,12 +98,11 @@
         .tag-tech {
             background: var(--glass);
             color: var(--neon-blue);
-            border: 1px solid rgba(0, 242, 255, 0.3);
-            padding: 6px 18px;
-            border-radius: 50px;
+            border: 1px solid var(--neon-blue);
+            padding: 4px 15px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            backdrop-filter: blur(5px);
         }
 
         section {
@@ -96,7 +115,6 @@
             padding-left: 15px;
             margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         .grid-projetos {
@@ -107,9 +125,9 @@
 
         .card-projeto {
             background: var(--card-bg);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -118,7 +136,7 @@
         .card-projeto:hover {
             transform: translateY(-10px);
             border-color: var(--neon-blue);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
         }
 
         .card-projeto h3 {
@@ -143,8 +161,8 @@
 
         .badge {
             background: rgba(255, 255, 255, 0.05);
-            color: #aaa;
-            padding: 4px 12px;
+            color: #888;
+            padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.7rem;
             font-weight: 700;
@@ -155,34 +173,39 @@
             display: block;
             padding: 12px;
             background: transparent;
-            color: var(--text-white);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
             text-decoration: none;
             border-radius: 8px;
             text-align: center;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9rem;
         }
 
         .btn-projeto:hover {
             background: var(--neon-blue);
             color: var(--bg-dark);
-            border-color: var(--neon-blue);
             box-shadow: 0 0 15px var(--neon-blue);
         }
 
         footer {
             text-align: center;
             padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
         }
 
         .social-links a {
             color: #888;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .social-links a:hover {
@@ -194,19 +217,26 @@
 
     <div class="container-principal">
         <header>
+            <img src="perfil.jpg" alt="Ewerton Natan" class="profile-img">
             <h1>EWERTON <span class="highlight">NATAN</span></h1>
-            <p class="subtitle">Estudante de ADS | Desenvolvedor Web | Especialista em Automação</p>
+            <p class="subtitle">Eu sou <span class="highlight-text"></span></p>
+            
             <div class="tags-header">
-                <span class="tag-tech">React</span>
-                <span class="tag-tech">N8n</span>
                 <span class="tag-tech">JavaScript</span>
+                <span class="tag-tech">n8n</span>
                 <span class="tag-tech">Linux</span>
+                <span class="tag-tech">Git</span>
+                <span class="tag-tech">React</span>
             </div>
         </header>
 
         <section id="sobre">
             <h2>Sobre Mim</h2>
-            <p style="color: #bbb; max-width: 800px;">Desenvolvedor focado em criar soluções eficientes e interfaces modernas. Atualmente cursando Análise e Desenvolvimento de Sistemas, com forte base em lógica de programação, arquitetura SPA e automação de fluxos de trabalho.</p>
+            <p style="color: #bbb; max-width: 850px;">
+                Estudante de ADS focado em arquitetura de software moderna e automação inteligente. 
+                Especialista em transformar fluxos manuais em processos automáticos e criar interfaces 
+                com alto padrão estético e funcional.
+            </p>
         </section>
 
         <section id="projetos">
@@ -215,9 +245,9 @@
                 
                 <div class="card-projeto">
                     <h3>🚀 Zapia CRM Pro</h3>
-                    <p>Sistema corporativo com Kanban, histórico de notas e métricas em tempo real. Focado em UX e gestão de leads.</p>
+                    <p>Gestão corporativa com Kanban e métricas em tempo real. Focado em UX e leads.</p>
                     <div class="badges-container">
-                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
+                        <span class="badge">JS ES6</span>
                         <span class="badge">DOM API</span>
                         <span class="badge">LocalStorage</span>
                     </div>
@@ -225,36 +255,57 @@
                 </div>
 
                 <div class="card-projeto">
-                    <h3>⏱️ Relógio Digital</h3>
-                    <p>Interface de alta precisão com tema neon, exibição de data completa e efeitos visuais imersivos.</p>
+                    <h3>📝 To-Do List Pro</h3>
+                    <p>Gerenciador de tarefas com persistência de dados e filtros de produtividade.</p>
                     <div class="badges-container">
-                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
-                        <span class="badge" style="color: #264de4;">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">Persistence</span>
                         <span class="badge">UI Design</span>
                     </div>
-                    <a href="https://tonatan36.github.io/relogio-digital/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
+                    <a href="https://tonatan36.github.io/todo-list/" target="_blank" class="btn-projeto">Acessar App</a>
+                </div>
+
+                <div class="card-projeto">
+                    <h3>☁️ Weather Dash</h3>
+                    <p>Dashboard climático consumindo API em tempo real com visual dinâmico.</p>
+                    <div class="badges-container">
+                        <span class="badge">Fetch API</span>
+                        <span class="badge">JSON</span>
+                        <span class="badge">OpenWeather</span>
+                    </div>
+                    <a href="https://tonatan36.github.io/previsao-tempo/" target="_blank" class="btn-projeto">Ver Clima</a>
+                </div>
+
+                <div class="card-projeto">
+                    <h3>⏱️ Relógio Neon</h3>
+                    <p>Interface de alta precisão com tema imersivo e efeitos visuais avançados.</p>
+                    <div class="badges-container">
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">Animations</span>
+                    </div>
+                    <a href="https://tonatan36.github.io/relogio-digital/" target="_blank" class="btn-projeto">Ver Online</a>
                 </div>
 
                 <div class="card-projeto">
                     <h3>🧮 Calculadora Dark</h3>
-                    <p>Ferramenta de cálculo com design minimalista, modo escuro e lógica aritmética avançada.</p>
+                    <p>Ferramenta aritmética minimalista com lógica avançada e modo escuro.</p>
                     <div class="badges-container">
-                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
-                        <span class="badge" style="color: #e34f26;">HTML5</span>
-                        <span class="badge">Matemática</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">Math</span>
+                        <span class="badge">HTML5</span>
                     </div>
-                    <a href="https://tonatan36.github.io/Calculadora/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
+                    <a href="https://tonatan36.github.io/Calculadora/" target="_blank" class="btn-projeto">Ver Online</a>
                 </div>
 
                 <div class="card-projeto">
-                    <h3>🧠 Jogo da Memória</h3>
-                    <p>Aplicação interativa para treino cognitivo com sistema de pontuação e lógica de estados.</p>
+                    <h3>🧠 Memory Game</h3>
+                    <p>Aplicação interativa para treino cognitivo com lógica de estados complexa.</p>
                     <div class="badges-container">
-                        <span class="badge" style="color: #f7df1e;">JavaScript</span>
+                        <span class="badge">JavaScript</span>
                         <span class="badge">Game Logic</span>
-                        <span class="badge">Interatividade</span>
                     </div>
-                    <a href="https://tonatan36.github.io/jogo-da-memoria/" target="_blank" class="btn-projeto">Ver Projeto Online</a>
+                    <a href="https://tonatan36.github.io/jogo-da-memoria/" target="_blank" class="btn-projeto">Jogar Agora</a>
                 </div>
 
             </div>
@@ -264,10 +315,13 @@
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/ewerton-natan-b9ab5238b" target="_blank">LinkedIn</a>
                 <a href="https://github.com/Tonatan36" target="_blank">GitHub</a>
-                <a href="Ewerton_Natan_Curriculo.pdf" target="_blank">Download CV</a>
+                <a href="Ewerton_Curriculo.pdf" target="_blank">Currículo PDF</a>
             </div>
+            <p style="color: #444; margin-top: 40px; font-size: 0.8rem; letter-spacing: 2px;">© 2026 EWERTON NATAN | ADS STUDENT & DEV</p>
         </footer>
     </div>
 
+    <!-- CONEXÃO COM O JAVASCRIPT -->
+    <script src="script.js"></script>
 </body>
 </html>
