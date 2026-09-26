@@ -2,12 +2,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.querySelector('.highlight-text');
     
-    // Frases que serão digitadas (Pode mudar como quiser!)
+    // Frases atualizadas para focar no seu perfil analítico e tecnológico
     const phrases = [
-        "Desenvolvedor Web",
-        "Especialista em n8n",
-        "Estudante de ADS",
-        "Apaixonado por Automação"
+        "Analista de Dados em Formação",
+        "Especialista em Dashboards & BI",
+        "Apaixonado por Automação & SQL",
+        "Estrategista de Processos & Dados"
     ];
     
     let phraseIndex = 0;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
     
-    // Log de boas-vindas no console (para recrutadores verem que você manja de JS)
-    console.log("%c🚀 Ewerton Natan - Portfólio ADS", "color: #00f2ff; font-size: 20px; font-weight: bold;");
-    console.log("Olá! Se você está vendo isso, sabe que o código importa. Vamos conversar?");
+    // Log de boas-vindas no console adaptado para dados
+    console.log("%c🚀 Ewerton Natan - Analista de Dados & ADS", "color: #00f2ff; font-size: 20px; font-weight: bold;");
+    console.log("Olá! Se você está analisando o código, sabe que os detalhes fazem a diferença. Vamos transformar dados em decisões?");
 });

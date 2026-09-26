@@ -1,144 +1,192 @@
-<style>
-    :root {
-        --neon-blue: #00f2ff;
-        --bg-dark: #0a0a0a;
-        --card-bg: #1a1a1a;
-        --text-white: #ffffff;
-    }
+:root {
+    --neon-blue: #00f2ff;
+    --bg-dark: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --text-white: #ffffff;
+}
 
-    body {
-        background-color: var(--bg-dark);
-        color: var(--text-white);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-    }
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
 
-    .container-principal {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
+    background-attachment: fixed;
+}
 
-    header {
-        text-align: center;
-        padding: 60px 0;
-    }
+.container-principal {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
 
-    /* Estilo da sua Foto de Perfil original */
-    .profile-img {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        border: 3px solid var(--neon-blue);
-        box-shadow: 0 0 20px var(--neon-blue);
-        margin-bottom: 25px;
-        object-fit: cover;
-    }
+header {
+    text-align: center;
+    padding: 60px 0;
+}
 
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
+/* Estilo da Foto de Perfil */
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid var(--neon-blue);
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+    margin-bottom: 25px;
+    object-fit: cover;
+}
 
-    .highlight {
-        color: var(--neon-blue);
-        text-shadow: 0 0 10px var(--neon-blue);
-    }
+h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
 
-    /* Tags de Tecnologia (React, N8n, Linux) */
-    .tag-tech {
-        background: rgba(0, 242, 255, 0.1);
-        color: var(--neon-blue);
-        border: 1px solid var(--neon-blue);
-        padding: 3px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        margin: 5px;
-        display: inline-block;
-    }
+.highlight {
+    color: var(--neon-blue);
+    text-shadow: 0 0 15px var(--neon-blue);
+}
 
-    section {
-        margin-bottom: 50px;
-    }
+/* Efeito de Cursor Piscante para o Subtítulo */
+.highlight-text {
+    color: var(--neon-blue);
+    font-weight: bold;
+    border-right: 2px solid var(--neon-blue);
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
 
-    h2 {
-        border-bottom: 2px solid var(--neon-blue);
-        display: inline-block;
-        margin-bottom: 30px;
-        padding-bottom: 5px;
-    }
+@keyframes blink {
+    50% { border-color: transparent; }
+}
 
-    .grid-projetos {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-    }
+/* Tags de Tecnologia */
+.tag-tech {
+    background: rgba(0, 242, 255, 0.05);
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 5px;
+    display: inline-block;
+}
 
-    /* Cards dos Projetos */
-    .card-projeto {
-        background: var(--card-bg);
-        padding: 25px;
-        border-radius: 12px;
-        border: 1px solid #333;
-        transition: 0.3s;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+section {
+    margin-bottom: 60px;
+}
 
-    .card-projeto:hover {
-        border-color: var(--neon-blue);
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 242, 255, 0.1);
-    }
+h2 {
+    border-left: 4px solid var(--neon-blue);
+    padding-left: 15px;
+    border-bottom: none;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
 
-    .card-projeto h3 {
-        color: var(--neon-blue);
-        margin-top: 0;
-    }
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
 
-    /* Botão "Ver Projeto Online" */
-    .btn-projeto {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: transparent;
-        color: var(--neon-blue);
-        border: 1px solid var(--neon-blue);
-        text-decoration: none;
-        border-radius: 5px;
-        text-align: center;
-        transition: 0.3s;
-    }
+/* Cards dos Projetos */
+.card-projeto {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-    .btn-projeto:hover {
-        background: var(--neon-blue);
-        color: var(--bg-dark);
-        font-weight: bold;
-    }
+.card-projeto:hover {
+    border-color: var(--neon-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 242, 255, 0.15);
+}
 
-    footer {
-        margin-top: 50px;
-        padding-bottom: 40px;
-    }
+.card-projeto h3 {
+    color: var(--neon-blue);
+    margin-top: 0;
+    font-size: 1.4rem;
+}
 
-    .social-links {
-        text-align: center;
-    }
+.card-projeto p {
+    color: #bbb;
+    font-size: 0.95rem;
+}
 
-    .social-links a {
-        color: var(--text-white);
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 1.1rem;
-        transition: 0.3s;
-    }
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
 
-    .social-links a:hover {
-        color: var(--neon-blue);
-    }
-</style>
+.badge {
+    background: rgba(255, 255, 255, 0.05);
+    color: #888;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Botão "Ver Projeto" */
+.btn-projeto {
+    display: block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.btn-projeto:hover {
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+footer {
+    margin-top: 60px;
+    padding: 40px 0;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: #888;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.social-links a:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+}
