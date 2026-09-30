@@ -1,8 +1,11 @@
 :root {
-    --neon-blue: #00f2ff;
-    --bg-dark: #0a0a0a;
-    --card-bg: #1a1a1a;
-    --text-white: #ffffff;
+    --primary-color: #0284c7;       /* Azul profissional corporativo */
+    --primary-hover: #0369a1;     /* Tom mais escuro para hover */
+    --bg-light: #f8fafc;          /* Fundo geral cinza gelo muito limpo */
+    --card-bg: #ffffff;           /* Fundo dos cards em branco puro */
+    --text-main: #1e293b;         /* Texto principal em cinza escuro (ótima leitura) */
+    --text-muted: #64748b;        /* Texto secundário/subtítulos */
+    --border-color: #e2e8f0;      /* Bordas suaves */
 }
 
 * {
@@ -11,14 +14,12 @@
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
+    background-color: var(--bg-light);
+    color: var(--text-main);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
-    background-attachment: fixed;
 }
 
 .container-principal {
@@ -37,8 +38,8 @@ header {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    border: 3px solid var(--neon-blue);
-    box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
     margin-bottom: 25px;
     object-fit: cover;
 }
@@ -47,19 +48,19 @@ h1 {
     font-size: clamp(2rem, 5vw, 2.8rem);
     margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    color: var(--text-main);
 }
 
 .highlight {
-    color: var(--neon-blue);
-    text-shadow: 0 0 15px var(--neon-blue);
+    color: var(--primary-color);
 }
 
 /* Efeito de Cursor Piscante para o Subtítulo */
 .highlight-text {
-    color: var(--neon-blue);
+    color: var(--primary-color);
     font-weight: bold;
-    border-right: 2px solid var(--neon-blue);
+    border-right: 2px solid var(--primary-color);
     padding-right: 5px;
     animation: blink 0.7s infinite;
 }
@@ -70,9 +71,9 @@ h1 {
 
 /* Tags de Tecnologia */
 .tag-tech {
-    background: rgba(0, 242, 255, 0.05);
-    color: var(--neon-blue);
-    border: 1px solid var(--neon-blue);
+    background: rgba(2, 132, 199, 0.08);
+    color: var(--primary-color);
+    border: 1px solid rgba(2, 132, 199, 0.2);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -86,12 +87,13 @@ section {
 }
 
 h2 {
-    border-left: 4px solid var(--neon-blue);
+    border-left: 4px solid var(--primary-color);
     padding-left: 15px;
     border-bottom: none;
     margin-bottom: 30px;
     text-transform: uppercase;
     font-size: 1.6rem;
+    color: var(--text-main);
 }
 
 .grid-projetos {
@@ -100,31 +102,32 @@ h2 {
     gap: 30px;
 }
 
-/* Cards dos Projetos */
+/* Cards dos Projetos / Habilidades */
 .card-projeto {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .card-projeto:hover {
-    border-color: var(--neon-blue);
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 242, 255, 0.15);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.12);
 }
 
 .card-projeto h3 {
-    color: var(--neon-blue);
+    color: var(--primary-color);
     margin-top: 0;
     font-size: 1.4rem;
 }
 
 .card-projeto p {
-    color: #bbb;
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -136,13 +139,14 @@ h2 {
 }
 
 .badge {
-    background: rgba(255, 255, 255, 0.05);
-    color: #888;
+    background: #f1f5f9;
+    color: var(--text-muted);
     padding: 3px 8px;
     border-radius: 4px;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
+    border: 1px solid var(--border-color);
 }
 
 /* Botão "Ver Projeto" */
@@ -151,8 +155,8 @@ h2 {
     margin-top: 15px;
     padding: 12px 20px;
     background: transparent;
-    color: var(--neon-blue);
-    border: 1px solid var(--neon-blue);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     text-decoration: none;
     border-radius: 8px;
     text-align: center;
@@ -161,15 +165,15 @@ h2 {
 }
 
 .btn-projeto:hover {
-    background: var(--neon-blue);
-    color: var(--bg-dark);
-    box-shadow: 0 0 15px var(--neon-blue);
+    background: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
 }
 
 footer {
     margin-top: 60px;
     padding: 40px 0;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border-color);
     text-align: center;
 }
 
@@ -178,7 +182,7 @@ footer {
 }
 
 .social-links a {
-    color: #888;
+    color: var(--text-muted);
     text-decoration: none;
     margin: 0 15px;
     font-size: 0.95rem;
@@ -187,6 +191,5 @@ footer {
 }
 
 .social-links a:hover {
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px var(--neon-blue);
-}
+    color: var(--primary-color);
+        }
